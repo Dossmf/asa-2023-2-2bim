@@ -1,11 +1,7 @@
 site_name: "ASA: Serviços para 2º bimestre"
-site_author: Nome e Sobrenome
+site_author: Luciano Mayque
 
 theme:
   name: readthedocs
-
-theme:
-  name: material
-  language: pt
 
   
