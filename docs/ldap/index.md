@@ -1,5 +1,7 @@
 # LDAP
 
+O LDAP (Lightweight Directory Access Protocol) é um protocolo de acesso a diretórios utilizado para consultar e manter informações de diretórios de maneira hierárquica. Aqui está um resumo conciso:
+
 ## Instalação
 
 Use o gerenciador de pacotes da sua distribuição Linux, no meu caso, minha distro é Ubuntu.

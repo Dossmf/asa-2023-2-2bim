@@ -1,5 +1,13 @@
 # PROXY
 
+O Squid é um servidor proxy amplamente utilizado em ambientes Linux para fornecer serviços de proxy HTTP e cache.
+
+Comumente usado em redes corporativas, escolas e provedores de serviços de internet para melhorar o desempenho, implementar políticas de acesso e proteger a privacidade dos usuários.
+
+O Squid é uma solução robusta para gerenciar o tráfego web, melhorar a eficiência e implementar políticas de segurança em ambientes Linux.
+
+
+
 ## Instalação do Proxy em um Ambiente Linux.
 Abra o terminal:
 

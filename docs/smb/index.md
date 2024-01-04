@@ -1,5 +1,13 @@
 # SMB
 
+O Samba é uma implementação do protocolo SMB/CIFS para sistemas operacionais Unix/Linux, permitindo a interoperabilidade com sistemas Windows.
+
+**Uso Comum:**
+
+Amplamente utilizado em ambientes corporativos para facilitar a colaboração entre sistemas Linux e Windows, permitindo o compartilhamento de recursos.
+O Samba desempenha um papel essencial em ambientes heterogêneos, promovendo a comunicação e o compartilhamento de recursos entre sistemas Linux e Windows.
+
+
 ## Instalação
 
 Abra o terminal:
