@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Luciano Mayque" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>DHCP - ASA: Serviços para 2º bimestre</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DHCP";
+        var mkdocs_page_input_path = "dhcp\\index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ASA: Serviços para 2º bimestre
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Serviços para o 2º bimestre</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dhcp</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">DHCP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao">Instalação</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracao">Configuração</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste">Teste</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ldap</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ldap/">LDAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Proxy</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../proxy/">PROXY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Smb</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">SMB</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ASA: Serviços para 2º bimestre</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dhcp</li>
+      <li class="breadcrumb-item active">DHCP</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dhcp">DHCP</h1>
+<h2 id="instalacao">Instalação</h2>
+<p>Você pode usar o atalho de teclado Ctrl + Alt + T no Ubuntu para abrir um terminal.</p>
+<p>Digite o comando:</p>
+<pre><code>sudo apt update
+sudo apt install dnsmasq
+</code></pre>
+<p>Inicie ou reinicie o serviço (se necessário):</p>
+<pre><code>sudo systemctl start dnsmasq
+sudo systemctl enable dnsmasq
+</code></pre>
+<p>Estes comandos iniciam o serviço dnsmasq e o configuram para iniciar automaticamente durante a inicialização do sistema.</p>
+<p>Com o Dns instalado e em execução na máquina, podomes configurar o arquivo <code>/etc/dnsmasq.conf</code> para personalizar as opções de configuração conforme necessário.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Vamos precisar abrir o arquivo de configuração:</p>
+<pre><code>/etc/dnsmasq.d/asa.conf
+
+</code></pre>
+<p>Em seguida, vamos editar colocando as seguintes informações:</p>
+<p><strong>Configuração do DHCP</strong></p>
+<pre><code>
+Interface=eth1
+dhcp-range=192.168.10.10,192.168.10.253,255.255.0,12h
+dhcp-option=3,192.168.10.254
+dhcp-option=6,8.8.8.8
+dhcp-option=15,pernambuco.lab
+log-facility=/var/log/dnsmasq.log
+
+dhcp-host=08:00:27:F3:1D:26,192.168.10.9
+
+</code></pre>
+<p><strong>O resultado final do arquivo deve ser semelhante a esse:</strong></p>
+<p><img alt="Alt text" src="image-2.png" /></p>
+<p>Vale lembrar que precisamos sempre reiniciar o serviço após cada alteração, abaixo vou listar
+os comandos essenciais.</p>
+<p><strong>Para startar o serviço:</strong></p>
+<pre><code>rc-service dnsmasq start
+</code></pre>
+<p><strong>Para reiniciar o serviço</strong></p>
+<pre><code>rc-service dnsmasq restart
+</code></pre>
+<p><strong>Para parar o serviço</strong></p>
+<pre><code>rc-service dnsmasq stop
+</code></pre>
+<h2 id="teste">Teste</h2>
+<p>Após o arquivo DHCP configurado e ter certeza que o serviço está rodando, vamos configurar uma máquina com o windows Xp como exemplo.</p>
+<p><strong>Vamos navegar até as configurações de rede da máquina(Conexão local) - Propriedades - Protocolo TCP/IP e ajustar os endereços do servidor DNS para:</strong></p>
+<pre><code>Servidor DNS prefencial: 192.168.10.254 - IP usado para consfigurar o arquivo: /etc/network/interfaces (o mesmo que roda o serviço DHCP)
+
+Servidor DNS alternativo: 8.8.8.8 - DNS configurado no arquivo: /etc/dnsmasq.d/asa.conf
+
+</code></pre>
+<p>Rodando o comando ipconfig para confirmar a distribuição dos ips na máquina Clone windows.</p>
+<p><img alt="Alt text" src="image.png" /></p>
+<p>Aqui podemos observar na máquina real que foi disponibilizado os ips configurado no arquivo de configuração:</p>
+<p><code>/etc/dnsmasq.d/asa</code></p>
+<p><img alt="Alt text" src="image-1.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Serviços para o 2º bimestre"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dns/" class="btn btn-neutral float-right" title="DNS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dns/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

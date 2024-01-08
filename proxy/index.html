@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Luciano Mayque" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>PROXY - ASA: Serviços para 2º bimestre</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PROXY";
+        var mkdocs_page_input_path = "proxy\\index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ASA: Serviços para 2º bimestre
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Serviços para o 2º bimestre</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dhcp</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ldap</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ldap/">LDAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Proxy</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">PROXY</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-do-proxy-em-um-ambiente-linux">Instalação do Proxy em um Ambiente Linux.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracao">Configuração</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste">Teste</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Smb</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">SMB</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ASA: Serviços para 2º bimestre</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Proxy</li>
+      <li class="breadcrumb-item active">PROXY</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="proxy">PROXY</h1>
+<p>O Squid é um servidor proxy amplamente utilizado em ambientes Linux para fornecer serviços de proxy HTTP e cache.</p>
+<p>Comumente usado em redes corporativas, escolas e provedores de serviços de internet para melhorar o desempenho, implementar políticas de acesso e proteger a privacidade dos usuários.</p>
+<p>O Squid é uma solução robusta para gerenciar o tráfego web, melhorar a eficiência e implementar políticas de segurança em ambientes Linux.</p>
+<h2 id="instalacao-do-proxy-em-um-ambiente-linux">Instalação do Proxy em um Ambiente Linux.</h2>
+<p>Abra o terminal:</p>
+<p>Vá até o menu e procure por "Terminal" ou pressione Ctrl + Alt + T para abrir o terminal.
+Atualize a lista de pacotes:</p>
+<p>Antes de instalar qualquer coisa, é uma boa prática atualizar a lista de pacotes disponíveis. Digite o seguinte comando e pressione Enter:</p>
+<pre><code>sudo apt update
+
+</code></pre>
+<p>Momento onde você vai começar a instalação:</p>
+<p>Agora, você está pronto para instalar o Squid. Digite o seguinte comando e pressione Enter:</p>
+<pre><code>sudo apt-get install squid
+
+</code></pre>
+<p>Confirme a instalação:</p>
+<p>O terminal pode perguntar se você deseja continuar. Digite Y (sim) e pressione Enter.
+Aguarde a conclusão da instalação:</p>
+<p>O sistema começará a baixar e instalar o Squid. Aguarde até que o processo seja concluído.
+Verifique a instalação (opcional):</p>
+<p>Após a instalação, você pode verificar a versão do Squid para garantir que tudo correu bem. Digite o seguinte comando:</p>
+<pre><code>squid -v
+
+</code></pre>
+<p>Isso deverá exibir a versão do Squid instalada.
+Inicie o Squid (se não iniciar automaticamente):</p>
+<p>Dependendo da configuração do seu sistema, o Squid pode iniciar automaticamente após a instalação. Se não, você pode iniciar manualmente com o seguinte comando:</p>
+<pre><code>sudo service squid start
+
+</code></pre>
+<h2 id="configuracao">Configuração</h2>
+<p>Abra o arquivo de configuração do Squid:</p>
+<p>Normalmente, o arquivo de configuração do Squid está localizado em:</p>
+<pre><code>/etc/squid/squid.conf
+
+</code></pre>
+<p>Você pode editá-lo usando um editor de texto, como o nano. Digite o seguinte comando para abrir o arquivo:</p>
+<pre><code>sudo nano /etc/squid/squid.conf
+</code></pre>
+<p>Adicione as ACLs:</p>
+<p>No arquivo de configuração, você pode adicionar as ACLs no final ou em uma seção específica, dependendo de como o arquivo está organizado. Adicione as seguintes linhas para criar 4 ACLs simples:</p>
+<pre><code># ACL para bloquear o facebook
+acl bloquear_facebook dstdomain .facebook.com
+
+# ACL para bloquear executaveis
+acl bloquear_executaveis urlpath_reges -i \.exe$ \.msi$ \.bat$
+
+# ACL para permitir atualização
+acl permitir_atualização dstdomain update.example.com
+
+# ACL para proibir palavras
+acl palavras_proibidas url_regex -i carro moto aviao
+
+</code></pre>
+<p>Lembre-se de ajustar os valores dessas ACLs conforme necessário para atender aos seus requisitos.</p>
+<p>Configure as regras de acesso:</p>
+<p>Depois de criar as ACLs, você pode configurar as regras de acesso. Adicione as seguintes linhas para permitir ou negar o acesso com base nas ACLs criadas:</p>
+<pre><code>Regra para  bloquear o facebook
+http_access deny bloquear_facebook
+
+Regra para bloquear executaveis
+http_access deny bloquear_executaveis
+
+Regra para permitir permitir atualização
+http_access allow permitir_atualizacao
+
+Regra para proibir palavras
+http_access deny palavras_proibidas
+
+Regra padrão (ao final do arquivo) para negar acesso não permitido
+
+</code></pre>
+<pre><code>http_access deny all
+</code></pre>
+<p>Essas regras são apenas exemplos. Você pode personalizá-las de acordo com suas necessidades específicas.</p>
+<p>Salve e saia:</p>
+<p>No editor de texto (nano), pressione Ctrl + X para sair, confirme se deseja salvar as alterações, pressionando Y, e pressione Enter.
+Reinicie o Squid:</p>
+<p>Após fazer as alterações no arquivo de configuração, reinicie o Squid para aplicar as mudanças. Utilize o seguinte comando:</p>
+<pre><code>sudo service squid restart
+</code></pre>
+<h2 id="teste">Teste</h2>
+<p>Após fazer todos os passos anterior, vamos ver como ficou os testes:</p>
+<ul>
+<li>
+<p>Foi criado uma cópia do arquivo: /etc/squid/squid.conf. Para ser editado sem perder os dados do arquivo principal.</p>
+</li>
+<li>
+<p>Foi adicionado todas as acls e as regras.</p>
+</li>
+</ul>
+<h1 id="imagem-do-arquivo-de-configuracao">Imagem do arquivo de configuração</h1>
+<p><img alt="Alt text" src="image.png" /></p>
+<p>Nas imagens seguintes, vimos o Navegador configurado e recusando acessos que foi inseridos no arquivo de configuração.</p>
+<p>1 - Recusado acesso ao: facebook.com</p>
+<p>1.1 - Recusado pesquisa com a palavra: moto</p>
+<h1 id="imagem-1">Imagem 1</h1>
+<p><img alt="Alt text" src="image-1.png" /></p>
+<h1 id="imagem-11">Imagem 1.1</h1>
+<p><img alt="Alt text" src="image-2.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ldap/" class="btn btn-neutral float-left" title="LDAP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../smb/" class="btn btn-neutral float-right" title="SMB">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ldap/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../smb/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

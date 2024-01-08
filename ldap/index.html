@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Luciano Mayque" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>LDAP - ASA: Serviços para 2º bimestre</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "LDAP";
+        var mkdocs_page_input_path = "ldap\\index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ASA: Serviços para 2º bimestre
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Serviços para o 2º bimestre</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dhcp</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ldap</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">LDAP</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao">Instalação</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracao-do-servico-dentro-do-ambiente-grafico-windows-7">Configuração do serviço dentro do ambiente gráfico Windows 7.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste">Teste</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Proxy</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../proxy/">PROXY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Smb</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">SMB</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ASA: Serviços para 2º bimestre</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Ldap</li>
+      <li class="breadcrumb-item active">LDAP</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ldap">LDAP</h1>
+<p>O LDAP (Lightweight Directory Access Protocol) é um protocolo de acesso a diretórios utilizado para consultar e manter informações de diretórios de maneira hierárquica. Aqui está um resumo conciso:</p>
+<h2 id="instalacao">Instalação</h2>
+<p>Use o gerenciador de pacotes da sua distribuição Linux, no meu caso, minha distro é Ubuntu.</p>
+<pre><code>sudo apt-get install slapd ldap-utils
+</code></pre>
+<p>Durante a instalação, você será solicitado a configurar a senha do administrador do LDAP (cn=admin,dc=example,dc=com). Forneça uma senha boa, que não seja tão comum.</p>
+<p>O arquivo de Configuração Principal: </p>
+<pre><code>/etc/ldap/slapd.conf
+</code></pre>
+<p>Abra o arquivo de configuração principal para edição.</p>
+<pre><code>sudo nano /etc/ldap/slapd.conf
+</code></pre>
+<h2 id="configuracao-do-servico-dentro-do-ambiente-grafico-windows-7">Configuração do serviço dentro do ambiente gráfico Windows 7.</h2>
+<p>Abra o "Active Directory":</p>
+<p>Você pode usar esse atalho no seu teclado:</p>
+<p>Pressione Win + R para abrir a caixa de diálogo "Executar".
+Digite dsa.msc e pressione Enter.</p>
+<p>Conecte-se ao Servidor do AD:</p>
+<p>Selecione o nó <code>"Domain Controllers"</code> e escolha <code>"Connect to Domain Controller..."</code> no menu de contexto.
+Selecione o controlador de domínio que deseja gerenciar e clique em "OK".</p>
+<p>Crie as Organizational Units (OU):</p>
+<p>No painel esquerdo, clique com o botão direito no domínio raiz e escolha <code>"New"</code> -&gt; <code>"Organizational Unit"</code>.
+Digite o nome da OU, como "norte", e clique em "OK".
+Repita o processo para criar a OU "sul".</p>
+<p>Mova Grupos e Usuários para as Novas OUs:</p>
+<p>Localize os grupos mayque e fonseca dentro da estrutura do AD.
+Selecione os grupos ou usuários que deseja mover.
+Clique com o botão direito do mouse e escolha "Move".
+Navegue até a nova OU correspondente (norte ou sul) e clique em "OK".</p>
+<h2 id="teste">Teste</h2>
+<p>Entrar no arquivo: <strong>/etc/samba/smb.conf</strong></p>
+<p>Adicionar os grupos com os nomes: mayque, fonseca e adicionar linhas de configurações. Depois criar os usuários que é preciso dentro de cada grupo.</p>
+<p><img alt="Alt text" src="image.png" /></p>
+<p>Tela da criação das OU, grupos e usuários.</p>
+<p><img alt="Alt text" src="image-1.png" /></p>
+<p>Verificando os usuários dentro do grupo correspondente e movido pra sua OU.</p>
+<p><img alt="Alt text" src="image-2.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dns/" class="btn btn-neutral float-left" title="DNS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../proxy/" class="btn btn-neutral float-right" title="PROXY">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../dns/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../proxy/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

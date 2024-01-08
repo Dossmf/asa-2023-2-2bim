@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Luciano Mayque" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>SMB - ASA: Serviços para 2º bimestre</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SMB";
+        var mkdocs_page_input_path = "smb\\index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ASA: Serviços para 2º bimestre
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Serviços para o 2º bimestre</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dhcp</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ldap</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ldap/">LDAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Proxy</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../proxy/">PROXY</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Smb</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">SMB</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao">Instalação</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracao">Configuração</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste">Teste</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ASA: Serviços para 2º bimestre</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Smb</li>
+      <li class="breadcrumb-item active">SMB</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="smb">SMB</h1>
+<p>O Samba é uma implementação do protocolo SMB/CIFS para sistemas operacionais Unix/Linux, permitindo a interoperabilidade com sistemas Windows.</p>
+<p><strong>Uso Comum:</strong></p>
+<p>Amplamente utilizado em ambientes corporativos para facilitar a colaboração entre sistemas Linux e Windows, permitindo o compartilhamento de recursos.
+O Samba desempenha um papel essencial em ambientes heterogêneos, promovendo a comunicação e o compartilhamento de recursos entre sistemas Linux e Windows.</p>
+<h2 id="instalacao">Instalação</h2>
+<p>Abra o terminal:</p>
+<p>Vá até o menu e procure por "Terminal" ou pressione Ctrl + Alt + T para abrir o terminal.
+Atualize a lista de pacotes:</p>
+<p>Antes de instalar qualquer coisa, é uma boa prática atualizar a lista de pacotes disponíveis. Digite o seguinte comando e pressione Enter:</p>
+<pre><code>sudo apt update
+
+</code></pre>
+<p>Depois você vai digitar o comando de instalação.</p>
+<pre><code>sudo apt install samba
+
+</code></pre>
+<p>Editar o arquivo smb.conf:</p>
+<pre><code>sudo nano /etc/samba/smb.conf
+</code></pre>
+<p>Adicionar Configurações:</p>
+<p>Adicione as seguintes configurações ao final do arquivo smb.conf:</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Incluir o(s) nome(s) e o conteúdo do(s) arquivo(s) de configuração.</p>
+<ol>
+<li>Criar 2 grupos para dois de seus sobrenomes;</li>
+<li>Criar 4 usuários, dois para cada um dos sobrenomes;</li>
+<li>Compartilhar duas pastas com dois de seus sobrenome, compartilhado para o grupo com o sobrenome correspondente.</li>
+</ol>
+<h2 id="teste">Teste</h2>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../proxy/" class="btn btn-neutral float-left" title="PROXY"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../proxy/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
